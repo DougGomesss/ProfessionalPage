@@ -1,0 +1,19 @@
+<div class="modal-backdrop" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeModal()">×</button>
+    <h2>{{ project.title }}</h2>
+    <div class="tech-tags">
+      @for (tech of project.technologies; track tech) {
+        <span class="tag">{{ tech }}</span>
+      }
+    </div>
+    <div class="modal-body">
+      @if (project.imageUrl2) {
+        <img [src]="getImageUrl(project.imageUrl2)" alt="Preview" class="modal-img" />
+      } @else if (project.imageUrl) {
+        <img [src]="getImageUrl(project.imageUrl)" alt="Preview" class="modal-img" />
+      }
+      <p class="specs">{{ project.detailedSpecs }}</p>
+    </div>
+  </div>
+</div>
