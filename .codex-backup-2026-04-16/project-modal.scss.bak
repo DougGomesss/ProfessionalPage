@@ -39,12 +39,6 @@
   &:hover {
     color: #ef4444;
   }
-
-  &:focus-visible {
-    outline: 3px solid rgba(125, 211, 252, 0.95);
-    outline-offset: 4px;
-    border-radius: 8px;
-  }
 }
 
 h2 {

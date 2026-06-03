@@ -1,24 +1,7 @@
-@let modalContent = translation().modal;
-
 <div class="modal-backdrop" (click)="closeModal()">
-  <div
-    class="modal-content"
-    id="project-modal"
-    role="dialog"
-    aria-modal="true"
-    [attr.aria-labelledby]="'project-modal-title-' + project.id"
-    (click)="$event.stopPropagation()"
-  >
-    <button
-      #closeButton
-      class="close-btn"
-      type="button"
-      [attr.aria-label]="modalContent.closeAriaLabel"
-      (click)="closeModal()"
-    >
-      &times;
-    </button>
-    <h2 [id]="'project-modal-title-' + project.id">{{ project.title }}</h2>
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeModal()">×</button>
+    <h2>{{ project.title }}</h2>
     <div class="tech-tags">
       @for (tech of project.technologies; track tech) {
         <span class="tag">{{ tech }}</span>
@@ -28,16 +11,24 @@
       @if (project.imageUrl || project.imageUrl2) {
         <div class="modal-media-grid">
           @if (project.imageUrl) {
-            <img [src]="getImageUrl(project.imageUrl)" [alt]="getImageAlt(1)" class="modal-img" />
+            <img
+              [src]="getImageUrl(project.imageUrl)"
+              [alt]="project.title + ' - imagem 1'"
+              class="modal-img"
+            />
           }
           @if (project.imageUrl2) {
-            <img [src]="getImageUrl(project.imageUrl2)" [alt]="getImageAlt(2)" class="modal-img" />
+            <img
+              [src]="getImageUrl(project.imageUrl2)"
+              [alt]="project.title + ' - imagem 2'"
+              class="modal-img"
+            />
           }
         </div>
       }
       @if (project.video) {
         <video
-          #videoPlayer
+          #meuVideo
           class="modal-video"
           width="100%"
           autoplay
@@ -47,7 +38,7 @@
           [attr.poster]="project.imageUrl ? getImageUrl(project.imageUrl) : null"
         >
           <source [src]="project.video" type="video/mp4" />
-          {{ modalContent.browserNoVideo }}
+          Seu navegador não suporta vídeos.
         </video>
       }
       <p class="specs">{{ project.detailedSpecs }}</p>

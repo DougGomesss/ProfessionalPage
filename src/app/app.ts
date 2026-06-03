@@ -1,17 +1,11 @@
-import { Component, signal, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ScrollRevealDirective } from './scroll-reveal';
-import { ProjectModal } from './project-modal/project-modal';
+import { Component, Inject, PLATFORM_ID, computed, effect, inject, signal } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
-export interface Project {
-  id: number;
-  title: string;
-  shortDescription: string;
-  technologies: string[];
-  imageUrl?: string;
-  imageUrl2?: string;
-  detailedSpecs: string;
-}
+import { I18nService } from './i18n/i18n.service';
+import { Project } from './models/project';
+import { ProjectModal } from './project-modal/project-modal';
+import { ScrollRevealDirective } from './scroll-reveal';
 
 @Component({
   selector: 'app-root',
@@ -21,54 +15,65 @@ export interface Project {
   styleUrls: ['./app.scss'],
 })
 export class App {
-  isBrowser: boolean;
+  private readonly _i18nService = inject(I18nService);
+  private readonly _titleService = inject(Title);
 
-  projects = signal<Project[]>([
-    {
-      id: 1,
-      title: 'Sistema IoT: Balança de Precisão com Consulta de IMC',
-      shortDescription:
-        'Desenvolvimento de uma balança inteligente com cálculo de IMC em tempo real e telemetria.',
-      technologies: ['C++', 'Arduino', 'HX711 (ADC)', 'ESP8266/ESP32', 'Sensores'],
-      imageUrl: 'IOT1.png',
-      imageUrl2: 'image.png',
-      detailedSpecs: `Este projeto consiste em uma balança inteligente que realiza a consulta de IMC (Índice de Massa Corporal) de forma automatizada. Com base no peso detectado e na altura especificada, o sistema processa o cálculo e retorna o resultado em uma tela digital.
+  readonly translation = this._i18nService.translation;
+  readonly projects = computed(() => this.translation().projects.items);
 
-Componentes e Hardware:
-• Microcontrolador: Arduino / ESP
-• Placa de fenolite customizada
-• Sensor de temperatura (utilizado para modo standby)
-• Célula de carga (Balança)
-• Conversor HX711 (ADC - Analogic Digital Converter)
-• Regulador de tensão 7805
-• Trafo 9V 250mA
+  readonly selectedProjectId = signal<number | null>(null);
+  readonly selectedProject = computed(() => {
+    const projectId = this.selectedProjectId();
 
-Eficiência Energética e Consumo:
-O projeto foi otimizado para eficiência real, considerando que o ESP consome cerca de 150mA com o trafo utilizado. A análise do consumo real de corrente foi fundamental para garantir a estabilidade do regulador de tensão e a precisão das leituras do ADC.`,
-    },
-  ]);
+    if (projectId === null) {
+      return null;
+    }
 
-  selectedProject = signal<Project | null>(null);
+    return this.projects().find((project) => project.id === projectId) ?? null;
+  });
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+  readonly isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) platformId: object) {
     this.isBrowser = isPlatformBrowser(platformId);
+
+    effect(() => {
+      this._titleService.setTitle(this.translation().meta.title);
+    });
   }
 
   getImageUrl(url?: string): string {
-    if (!url) return 'image.png';
-    const isJpgOrPng = url.toLowerCase().endsWith('.jpg') || url.toLowerCase().endsWith('.png');
-    return isJpgOrPng ? url : `${url}.gif`;
+    if (!url) {
+      return 'image.png';
+    }
+
+    const hasKnownExtension = /\.(jpg|jpeg|png|svg|webp)$/i.test(url);
+
+    return hasKnownExtension ? url : `${url}.gif`;
+  }
+
+  getProjectAriaLabel(projectTitle: string): string {
+    return `${this.translation().projects.openProjectPrefix} ${projectTitle}`;
   }
 
   openModal(project: Project) {
-    this.selectedProject.set(project);
+    this.selectedProjectId.set(project.id);
+
     if (this.isBrowser) {
       document.body.style.overflow = 'hidden';
     }
   }
 
+  onProjectCardKeydown(event: KeyboardEvent, project: Project) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.openModal(project);
+    }
+  }
+
   closeModal() {
-    this.selectedProject.set(null);
+    this.selectedProjectId.set(null);
+
     if (this.isBrowser) {
       document.body.style.overflow = '';
     }

@@ -1,0 +1,32 @@
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Project } from '../app';
+
+@Component({
+  selector: 'app-project-modal',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './project-modal.html',
+  styleUrls: ['./project-modal.scss'],
+})
+export class ProjectModal {
+  @Input({ required: true }) project!: Project;
+  @Output() close = new EventEmitter<void>();
+  @ViewChild('meuVideo') videoPlayer?: ElementRef<HTMLVideoElement>;
+
+  ngAfterViewInit() {
+    if (this.videoPlayer) {
+      this.videoPlayer.nativeElement.playbackRate = 3.0;
+    }
+  }
+
+  getImageUrl(url?: string): string {
+    if (!url) return '';
+    const hasKnownExtension = /\.(jpg|jpeg|png|svg|webp)$/i.test(url);
+    return hasKnownExtension ? url : `${url}.gif`;
+  }
+
+  closeModal() {
+    this.close.emit();
+  }
+}
