@@ -94,7 +94,7 @@ Fluxo de coleta:
     produtos: {
       comingSoon: 'Em breve',
       description:
-        'Produtos técnicos para eletrônica e desenvolvimento — ferramentas, kits e soluções prontas para usar.',
+        'Eletrônicos',
     },
     modal: {
       closeAriaLabel: 'Fechar detalhes do projeto',
@@ -195,7 +195,7 @@ Collection flow:
     produtos: {
       comingSoon: 'Coming soon',
       description:
-        'Technical products for electronics and development — tools, kits, and ready-to-use solutions.',
+        'Electronics',
     },
     modal: {
       closeAriaLabel: 'Close project details',
