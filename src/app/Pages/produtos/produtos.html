@@ -7,9 +7,9 @@
     <h2 class="section-heading">{{ content.nav.produtos }}</h2>
     <p class="produtos-desc">{{ content.produtos.description }}</p>
 
-    @if (produtos.length > 0) {
+    @if (produtos().length > 0) {
       <div class="produtos-grid">
-        @for (produto of produtos; track $index) {
+        @for (produto of produtos(); track $index) {
           <div class="produto-card">
             <img class="produto-img" [src]="produto.imagemProduto" [alt]="produto.descricao" />
             <div class="produto-info">
