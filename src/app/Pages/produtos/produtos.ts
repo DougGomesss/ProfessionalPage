@@ -20,8 +20,20 @@ export class ProdutosComponent {
 
   readonly translation = this._i18nService.translation;
 
-  readonly produtos = toSignal(
-    this._http.get<Produto[]>('produtos.json'),
-    { initialValue: [] as Produto[] }
-  );
+  readonly produtos = toSignal(this._http.get<Produto[]>('produtos.json'), {
+    initialValue: [] as Produto[],
+  });
+
+  whatsappLink(produto: Produto): string {
+    const preco = produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const msg = `Oi Douglas!, me interessei pelo ${produto.descricao} | ${preco}`;
+    return `https://wa.me/5511980491930?text=${encodeURIComponent(msg)}`;
+  }
+
+  /// MOCK
+  //   {
+  //     "descricao": "Kit Arduino Básico",
+  //     "preco": 89.9,
+  //     "imagemProduto": "kit-arduino.jpg"
+  //   }
 }

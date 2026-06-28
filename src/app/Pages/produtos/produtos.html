@@ -10,7 +10,7 @@
     @if (produtos().length > 0) {
       <div class="produtos-grid">
         @for (produto of produtos(); track $index) {
-          <div class="produto-card">
+          <a class="produto-card" [href]="whatsappLink(produto)" target="_blank" rel="noopener noreferrer">
             <img class="produto-img" [src]="produto.imagemProduto" [alt]="produto.descricao" />
             <div class="produto-info">
               <p class="produto-descricao">{{ produto.descricao }}</p>
@@ -18,7 +18,7 @@
                 produto.preco | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
               }}</span>
             </div>
-          </div>
+          </a>
         }
       </div>
     } @else {
