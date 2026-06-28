@@ -1,0 +1,40 @@
+@let content = translation();
+
+<app-back-button></app-back-button>
+
+<section id="sobre" class="sobre-section" appScrollReveal>
+  <div class="section-inner">
+    <h2 class="section-heading">{{ content.nav.sobre }}</h2>
+
+    <div class="sobre-body">
+      <div class="sobre-text-col">
+        <p class="sobre-text">{{ content.sobre.description }}</p>
+        <div class="sobre-links">
+          <a
+            href="https://www.linkedin.com/in/douglas-oliveira-806710208/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sobre-link"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/DougGomesss"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sobre-link"
+            >GitHub</a
+          >
+          <a
+            href="https://wa.me/5511980491930"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="sobre-link"
+            >WhatsApp</a
+          >
+        </div>
+      </div>
+
+      <img src="foto-perfil.png" alt="Douglas Gomes" class="sobre-photo" />
+    </div>
+  </div>
+</section>

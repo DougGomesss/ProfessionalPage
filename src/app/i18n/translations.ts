@@ -1,27 +1,5 @@
 import { PortfolioContent } from './portfolio-content';
 
-const SOCIAL_LINKS = [
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/douglas-oliveira-806710208/',
-  },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/DougGomesss',
-    variant: 'github' as const,
-  },
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/techd.node/',
-    variant: 'instagram' as const,
-  },
-  {
-    label: 'WhatsApp',
-    href: 'https://wa.me/5511980491930',
-    variant: 'whatsapp' as const,
-  },
-];
-
 export const TRANSLATIONS: Record<'pt-BR' | 'en', PortfolioContent> = {
   'pt-BR': {
     meta: {
@@ -39,6 +17,15 @@ export const TRANSLATIONS: Record<'pt-BR' | 'en', PortfolioContent> = {
       subtitle: 'Da Automação IoT à Nuvem Escalável',
       description: 'Engenharia de software aplicada em diferentes ecossistemas tecnológicos',
       secondaryAction: 'Falar no WhatsApp',
+    },
+    nav: {
+      sobre: 'SOBRE',
+      trabalhos: 'TRABALHOS',
+      produtos: 'PRODUTOS',
+    },
+    sobre: {
+      description:
+        'Desenvolvedor .NET Full Stack com mais de 2 anos de experiência em sistemas de produção, integrações e microsserviços. Atuo na interseção entre Engenharia eletrônica ao Desenvolvimento de software.',
     },
     projects: {
       eyebrow: 'Projetos em Destaque',
@@ -104,58 +91,10 @@ Fluxo de coleta:
         },
       ],
     },
-    presentation: {
-      title: 'Trajetória Profissional',
-      highlight:
-        'Sou Douglas Gomes, tenho 26 anos e atuo como Desenvolvedor .NET Full Stack com mais de 2 anos de experiência no ciclo completo de desenvolvimento, transformando sistemas legados em soluções escaláveis e arquiteturas de microsserviços.',
-      impactTitle: 'Experiência de Impacto',
-      impactIntro: 'Na Pricefy by Selbetti, atuo na linha de frente da evolução tecnológica:',
-      impactItems: [
-        {
-          title: 'Arquitetura',
-          description:
-            'Projetos de APIs RESTful escaláveis em .NET Core, migrando arquiteturas monolíticas para modelos baseados em microsserviços.',
-        },
-        {
-          title: 'Integração Massiva',
-          description:
-            'Desenvolvimento de conectores em C# para integração de grandes volumes de dados entre ERPs de clientes e a plataforma Pricefy.',
-        },
-        {
-          title: 'Observabilidade',
-          description:
-            'Implementação de mecanismos avançados de logs para monitoramento e rastreabilidade total das integrações.',
-        },
-        {
-          title: 'Qualidade Técnica',
-          description:
-            'Aplicação rigorosa de SOLID, TDD e boas práticas de código, utilizando Azure DevOps para gestão de fluxo.',
-        },
-      ],
-      educationTitle: 'Formação e Idiomas',
-      educationCourse: 'CST em Tecnologia',
-      educationInstitution: 'Centro Universitário FMU | FIAM-FAAM',
-      languageBadge: 'Inglês - C1 (Avançado)',
-      summaryPrefix:
-        'Minha trajetória combina a precisão técnica do desenvolvimento com a visão estratégica de quem já atuou como ',
-      summaryHighlight: 'Analista de Implantação',
-      summarySuffix: ', unindo experiência, comunicação e foco total no resultado.',
-      skills: [
-        {
-          title: 'Back-end & Cloud',
-          value: '.NET Core, C#, Entity Framework, AWS (Lambda, Fargate, S3, Step Functions)',
-        },
-        {
-          title: 'Front-end',
-          value: 'Angular, React, TypeScript, SASS/SCSS',
-        },
-        {
-          title: 'Expertise',
-          value: 'Microsserviços, SOLID, TDD, Integração de Sistemas, Monitoramento/Logs',
-        },
-      ],
-      socialLinks: SOCIAL_LINKS,
-      cta: 'Pronto para novos desafios de arquitetura e desenvolvimento. Vamos conversar?',
+    produtos: {
+      comingSoon: 'Em breve',
+      description:
+        'Produtos técnicos para eletrônica e desenvolvimento — ferramentas, kits e soluções prontas para usar.',
     },
     modal: {
       closeAriaLabel: 'Fechar detalhes do projeto',
@@ -179,6 +118,15 @@ Fluxo de coleta:
       subtitle: 'From IoT Automation to Scalable Cloud',
       description: 'Software engineering applied across different technology ecosystems',
       secondaryAction: 'Chat on WhatsApp',
+    },
+    nav: {
+      sobre: 'ABOUT',
+      trabalhos: 'WORKS',
+      produtos: 'PRODUCTS',
+    },
+    sobre: {
+      description:
+        '.NET Full Stack Developer with over 2 years of experience in production systems, integrations, and microservices. I work at the intersection of Electronic Engineering and Software Development.',
     },
     projects: {
       eyebrow: 'Featured Projects',
@@ -244,58 +192,10 @@ Collection flow:
         },
       ],
     },
-    presentation: {
-      title: 'Professional Journey',
-      highlight:
-        'I am Douglas Gomes, 26 years old, working as a .NET Full Stack Developer with more than 2 years of experience across the full software lifecycle, turning legacy systems into scalable solutions and microservices architectures.',
-      impactTitle: 'Impactful Experience',
-      impactIntro: 'At Pricefy by Selbetti, I work on the front line of technological evolution:',
-      impactItems: [
-        {
-          title: 'Architecture',
-          description:
-            'Scalable RESTful API projects in .NET Core, migrating monolithic architectures to microservices-based models.',
-        },
-        {
-          title: 'Large-Scale Integration',
-          description:
-            'Development of C# connectors to integrate high volumes of data between client ERPs and the Pricefy platform.',
-        },
-        {
-          title: 'Observability',
-          description:
-            'Implementation of advanced logging mechanisms for full monitoring and traceability across integrations.',
-        },
-        {
-          title: 'Technical Quality',
-          description:
-            'Strict application of SOLID, TDD and engineering best practices, using Azure DevOps to manage delivery flow.',
-        },
-      ],
-      educationTitle: 'Education and Languages',
-      educationCourse: 'Associate Degree in Technology',
-      educationInstitution: 'FMU University Center | FIAM-FAAM',
-      languageBadge: 'English - C1 (Advanced)',
-      summaryPrefix:
-        'My background combines the technical precision of software development with the strategic perspective of someone who has also worked as an ',
-      summaryHighlight: 'Implementation Analyst',
-      summarySuffix: ', bringing together experience, communication and strong delivery focus.',
-      skills: [
-        {
-          title: 'Back-end & Cloud',
-          value: '.NET Core, C#, Entity Framework, AWS (Lambda, Fargate, S3, Step Functions)',
-        },
-        {
-          title: 'Front-end',
-          value: 'Angular, React, TypeScript, SASS/SCSS',
-        },
-        {
-          title: 'Expertise',
-          value: 'Microservices, SOLID, TDD, Systems Integration, Monitoring/Logs',
-        },
-      ],
-      socialLinks: SOCIAL_LINKS,
-      cta: "Ready for new architecture and development challenges. Let's talk?",
+    produtos: {
+      comingSoon: 'Coming soon',
+      description:
+        'Technical products for electronics and development — tools, kits, and ready-to-use solutions.',
     },
     modal: {
       closeAriaLabel: 'Close project details',

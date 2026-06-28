@@ -11,8 +11,8 @@ import {
   inject,
 } from '@angular/core';
 
-import { I18nService } from '../i18n/i18n.service';
-import { Project } from '../models/project';
+import { I18nService } from '../../i18n/i18n.service';
+import { Project } from '../../../interface/project';
 
 @Component({
   selector: 'app-project-modal',

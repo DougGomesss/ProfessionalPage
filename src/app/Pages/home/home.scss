@@ -1,0 +1,88 @@
+.landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.landing-inner {
+  text-align: center;
+  width: min(100%, 640px);
+}
+
+.landing-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.landing-role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 3rem;
+}
+
+.landing-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: min(100%, 420px);
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #ffffff;
+
+    .nav-fill {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-num {
+      color: #ffffff;
+    }
+  }
+}
+
+.nav-label {
+  white-space: nowrap;
+}
+
+.nav-fill {
+  flex: 1;
+  height: 0;
+  border-bottom: 2px dotted rgba(255, 255, 255, 0.2);
+  margin-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.nav-num {
+  color: rgba(255, 255, 255, 0.35);
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 0.7rem;
+  transition: color 0.2s ease;
+}
+
+@media (max-width: 600px) {
+  .landing-name {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+  }
+}

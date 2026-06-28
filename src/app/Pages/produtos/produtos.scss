@@ -1,0 +1,93 @@
+.produtos-section {
+  padding: 6rem 2rem 8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-heading {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.produtos-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.04em;
+  margin-bottom: 3rem;
+}
+
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.produto-card {
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+}
+
+.produto-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.produto-info {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.produto-descricao {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.produto-preco {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.sem-produtos {
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.04em;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .produtos-section {
+    padding: 4rem 1.25rem 6rem;
+  }
+}
