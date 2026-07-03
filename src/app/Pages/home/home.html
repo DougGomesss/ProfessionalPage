@@ -15,11 +15,13 @@
         <span class="nav-fill" aria-hidden="true"></span>
         <span class="nav-num">II</span>
       </a>
-      <a routerLink="/produtos" class="nav-item">
-        <span class="nav-label">{{ content.nav.produtos }}</span>
-        <span class="nav-fill" aria-hidden="true"></span>
-        <span class="nav-num">III</span>
-      </a>
+      @if (language() !== 'en') {
+        <a routerLink="/produtos" class="nav-item">
+          <span class="nav-label">{{ content.nav.produtos }}</span>
+          <span class="nav-fill" aria-hidden="true"></span>
+          <span class="nav-num">III</span>
+        </a>
+      }
     </nav>
   </div>
 </section>

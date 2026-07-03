@@ -12,4 +12,5 @@ import { I18nService } from '../../i18n/i18n.service';
 export class HomeComponent {
   private readonly _i18nService = inject(I18nService);
   readonly translation = this._i18nService.translation;
+  readonly language = this._i18nService.language;
 }
