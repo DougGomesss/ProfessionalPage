@@ -17,7 +17,6 @@ export interface PortfolioContent {
   nav: {
     sobre: string;
     trabalhos: string;
-    produtos: string;
   };
   sobre: {
     description: string;
@@ -27,10 +26,6 @@ export interface PortfolioContent {
     title: string;
     openProjectPrefix: string;
     items: Project[];
-  };
-  produtos: {
-    comingSoon: string;
-    description: string;
   };
   modal: {
     closeAriaLabel: string;

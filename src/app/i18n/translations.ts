@@ -21,7 +21,6 @@ export const TRANSLATIONS: Record<'pt-BR' | 'en', PortfolioContent> = {
     nav: {
       sobre: 'SOBRE',
       trabalhos: 'TRABALHOS',
-      produtos: 'PRODUTOS',
     },
     sobre: {
       description:
@@ -91,11 +90,6 @@ Fluxo de coleta:
         },
       ],
     },
-    produtos: {
-      comingSoon: 'Em breve',
-      description:
-        'Eletrônicos',
-    },
     modal: {
       closeAriaLabel: 'Fechar detalhes do projeto',
       imageAltLabel: 'imagem',
@@ -122,7 +116,6 @@ Fluxo de coleta:
     nav: {
       sobre: 'ABOUT',
       trabalhos: 'WORKS',
-      produtos: 'PRODUCTS',
     },
     sobre: {
       description:
@@ -191,11 +184,6 @@ Collection flow:
 • At the end, a full summary is sent to the customer before the automated session closes`,
         },
       ],
-    },
-    produtos: {
-      comingSoon: 'Coming soon',
-      description:
-        'Electronics',
     },
     modal: {
       closeAriaLabel: 'Close project details',
